@@ -1,0 +1,18 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: votingApp-service
+  labels:
+    type: votingApp-service
+    author: skyda
+
+spec:
+  type: LoadBalancer
+  ports:
+    - targetPort: 80
+      port: 80
+  selector:
+    type: votingApp-deployment
+    author: skyda
+...

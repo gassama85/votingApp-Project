@@ -1,0 +1,23 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: workerApp-deployment
+  labels:
+    type: workerApp
+    author: skyda
+
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      type: workerApp
+  template:
+    metadata:
+      name: workerApp-pod
+      labels:
+        type: workerApp
+    spec:
+      containers:
+        - name: workerApp
+          image: dockersamples/examplevotingapp_worker

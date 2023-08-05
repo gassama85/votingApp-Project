@@ -1,0 +1,26 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: resultapp-deployment
+  labels:
+    type: resultapp-deployment
+    author: skyda
+
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      type: resultapp
+  template:
+    metadata:
+      name: resultapp-pod
+      labels:
+        type: resultapp-pod
+    spec:
+      containers:
+        - name: resultApp
+          image: dockersamples/examplevotingapp_result
+          ports:
+            - containerPort: 80
+...

@@ -1,0 +1,17 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: redis-service
+  labels:
+    type: redis-service
+    author: skyda
+
+spec:
+  ports:
+    - targetPort: 6379
+      port:
+  selector:
+    type: redis-deployment
+    author: skyda
+...
